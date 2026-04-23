@@ -1,65 +1,107 @@
 import SectionHeader from "./SectionHeader";
+import { RevealLine } from "./SplitReveal";
 
 const jobs = [
   {
+    badge: "HF",
     role: "Analista de Marketing e Comunicação",
     company: "Home Fine Móveis",
     period: "2025 — 2026",
     description:
-      "Desenvolvimento de propostas de branding e reposicionamento estratégico para o mercado de móveis de alto padrão. Gestão de comunicação visual de ponta a ponta, fotografia profissional de ambientes e atendimento consultivo focado no fechamento comercial.",
+      "Reposicionamento estratégico para o mercado de móveis de alto padrão. Direção de fotografia de ambientes, sistemas visuais e atendimento consultivo focado em fechamento comercial.",
+    metrics: [
+      { value: "+40%", label: "Engajamento social" },
+      { value: "12", label: "Campanhas entregues" },
+      { value: "3", label: "Linhas relançadas" },
+    ],
     tags: ["Branding", "Fotografia", "Alto Padrão"],
   },
   {
-    role: "Proprietária & Designer",
-    company: "Studio Rosso Art e Design",
-    period: "Experiência Autônoma",
+    badge: "SR",
+    role: "Proprietária & Diretora",
+    company: "Studio Rosso · Art e Design",
+    period: "2020 — 2024",
     description:
-      "Fundação e gestão completa de estúdio autoral. Domínio de todo o ciclo de negócio, desde a concepção artística minimalista até marketing, vendas e atendimento direto ao cliente.",
+      "Fundação e gestão completa de estúdio autoral minimalista. Domínio de todo o ciclo: concepção artística, marketing, vendas, atendimento direto e logística.",
+    metrics: [
+      { value: "5 anos", label: "Operação contínua" },
+      { value: "100+", label: "Peças autorais" },
+      { value: "B2C", label: "Venda direta" },
+    ],
     tags: ["Direção", "Estúdio Próprio", "Minimalismo"],
   },
 ];
 
 const Experience = () => {
   return (
-    <section id="experiencia" className="relative py-24 lg:py-40 bg-ink/30 border-y border-border">
+    <section id="experiencia" className="relative py-24 lg:py-40 bg-ink/40 border-y border-border">
       <div className="container">
         <SectionHeader
-          index="02"
+          index="03"
           eyebrow="Trajetória"
           title="Experiência."
-          description="Trajetória construída entre estúdio próprio e atuação corporativa em segmentos de alto padrão."
+          description="De estúdio próprio a atuação corporativa em segmentos premium — uma trajetória feita de obra entregue."
         />
 
-        <div className="space-y-0">
-          {jobs.map((job, i) => (
-            <div
-              key={i}
-              className="group grid lg:grid-cols-12 gap-6 py-10 border-t border-border hover:bg-brand/5 transition-colors -mx-6 px-6"
-            >
-              <div className="lg:col-span-3">
-                <div className="eyebrow text-brand">{job.period}</div>
-              </div>
-              <div className="lg:col-span-6">
-                <h3 className="display text-3xl md:text-4xl mb-2 group-hover:text-brand transition-colors">
-                  {job.role}
-                </h3>
-                <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-5">
-                  {job.company}
+        <div className="relative">
+          {/* Vertical connector line */}
+          <div className="absolute left-[11px] top-3 bottom-3 w-px bg-gradient-to-b from-brand via-border to-transparent" />
+
+          <div className="space-y-16 lg:space-y-24">
+            {jobs.map((job, i) => (
+              <RevealLine key={i} delay={i * 0.1}>
+                <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+                  {/* Marker + period */}
+                  <div className="lg:col-span-3 flex lg:block items-center gap-4 relative pl-8 lg:pl-10">
+                    <span className="absolute left-0 top-1 w-6 h-6 rounded-full border-2 border-brand bg-background flex items-center justify-center">
+                      <span className="w-2 h-2 rounded-full bg-brand" />
+                    </span>
+                    <div className="eyebrow text-brand">{job.period}</div>
+                    <div className="hidden lg:flex mt-4 w-14 h-14 border border-border items-center justify-center">
+                      <span className="display text-lg">{job.badge}</span>
+                    </div>
+                  </div>
+
+                  {/* Body */}
+                  <div className="lg:col-span-6">
+                    <h3 className="display text-3xl md:text-4xl lg:text-5xl mb-2 leading-[0.95]">
+                      {job.role}
+                    </h3>
+                    <div className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-5">
+                      {job.company}
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed max-w-xl mb-6">
+                      {job.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {job.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground border border-border px-2.5 py-1.5"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Metrics */}
+                  <div className="lg:col-span-3 grid grid-cols-3 lg:grid-cols-1 gap-px bg-border border border-border">
+                    {job.metrics.map((m) => (
+                      <div key={m.label} className="bg-background p-4 lg:p-5">
+                        <div className="display text-2xl lg:text-3xl text-brand">
+                          {m.value}
+                        </div>
+                        <div className="eyebrow text-muted-foreground mt-1 text-[9px]">
+                          {m.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed max-w-xl">
-                  {job.description}
-                </p>
-              </div>
-              <div className="lg:col-span-3 flex flex-wrap gap-2 lg:justify-end h-fit">
-                {job.tags.map((t) => (
-                  <span key={t} className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground border border-border px-2 py-1">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-          <div className="border-t border-border" />
+              </RevealLine>
+            ))}
+          </div>
         </div>
       </div>
     </section>

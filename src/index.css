@@ -167,3 +167,10 @@
 .animate-glow {
   animation: glow-pulse 4s ease-in-out infinite;
 }
+
+/* Custom scroll cursor for interactive zones */
+@media (hover: hover) {
+  a, button {
+    cursor: pointer;
+  }
+}
