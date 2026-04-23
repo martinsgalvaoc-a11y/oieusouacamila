@@ -13,12 +13,22 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+        display: ['Montserrat', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          glow: "hsl(var(--brand-glow))",
+        },
+        ink: "hsl(var(--ink))",
+        charcoal: "hsl(var(--charcoal))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
