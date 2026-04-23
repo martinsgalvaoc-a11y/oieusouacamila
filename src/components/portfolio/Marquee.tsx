@@ -9,10 +9,16 @@ const items = [
 
 const Marquee = () => {
   return (
-    <div className="relative border-y border-border bg-ink/40 py-6 overflow-hidden">
+    <div
+      className="relative border-y border-border bg-ink/40 py-6 overflow-hidden"
+      aria-hidden="true"
+    >
       <div className="flex animate-marquee whitespace-nowrap">
         {[...items, ...items, ...items, ...items].map((item, i) => (
-          <span key={i} className="display text-3xl mx-8 flex items-center gap-8">
+          <span
+            key={i}
+            className="display text-3xl mx-8 flex items-center gap-8 text-foreground/90"
+          >
             {item}
             <span className="w-2 h-2 rounded-full bg-brand inline-block" />
           </span>
