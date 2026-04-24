@@ -2,6 +2,8 @@ import { useState, useMemo } from "react";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import portrait from "@/assets/portrait.jpeg";
+import logo1 from "@/assets/logo1.jpg";
+import logo2 from "@/assets/logo2.png";
 import { RevealLine } from "./SplitReveal";
 
 const categories = ["Todos", "Branding", "Fotografia", "Direção"] as const;
@@ -34,6 +36,10 @@ const projects: Project[] = [
     solution:
       "Estruturação de sistema visual consistente, definição de identidade visual e direção de fotografia alinhada ao posicionamento da marca.",
     accent: true,
+    beforeAfterImages: {
+      before: logo1,
+      after: logo2,
+    },
   },
   {
     n: "02",
