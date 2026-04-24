@@ -34,7 +34,7 @@ const MagneticButton = ({
     el.style.transform = "translate(0px, 0px)";
   };
 
-  const baseClass = `inline-flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform ${className}`;
+  const baseClass = `inline-flex items-center justify-center transition-transform duration-500 ease-out-expo will-change-transform ${className}`;
 
   if (href) {
     return (

@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export const useActiveSection = (ids: string[], offset = 0.4) => {
   const [active, setActive] = useState<string>(ids[0] ?? "");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const stableIds = useMemo(() => ids, [ids.join(",")]);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
     const visible = new Map<string, number>();
 
-    ids.forEach((id) => {
+    stableIds.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
@@ -15,7 +17,7 @@ export const useActiveSection = (ids: string[], offset = 0.4) => {
           entries.forEach((entry) => {
             visible.set(id, entry.intersectionRatio);
           });
-          let best = ids[0];
+          let best = stableIds[0];
           let bestRatio = -1;
           visible.forEach((ratio, key) => {
             if (ratio > bestRatio) {
@@ -32,7 +34,7 @@ export const useActiveSection = (ids: string[], offset = 0.4) => {
     });
 
     return () => observers.forEach((o) => o.disconnect());
-  }, [ids.join(","), offset]);
+  }, [stableIds, offset]);
 
   return active;
 };
