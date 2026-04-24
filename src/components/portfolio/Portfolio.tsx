@@ -2,8 +2,6 @@ import { useState, useMemo } from "react";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import portrait from "@/assets/portrait.jpeg";
-import logo1 from "@/assets/logo1.png";
-import logo2 from "@/assets/logo2.png";
 import { RevealLine } from "./SplitReveal";
 
 const categories = ["Todos", "Branding", "Fotografia", "Direção"] as const;
@@ -36,10 +34,6 @@ const projects: Project[] = [
     solution:
       "Estruturação de sistema visual consistente, definição de identidade visual e direção de fotografia alinhada ao posicionamento da marca.",
     accent: true,
-    beforeAfterImages: {
-      before: logo1,
-      after: logo2,
-    },
   },
   {
     n: "02",
@@ -131,7 +125,7 @@ const Portfolio = () => {
                       src={portrait}
                       alt={`${p.title} — ${p.client}`}
                       loading="lazy"
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-[1.04]"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-[1.04]"
                     />
                     <div
                       className={`absolute inset-0 transition-opacity duration-700 ${
