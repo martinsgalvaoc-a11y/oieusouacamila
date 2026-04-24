@@ -2,6 +2,8 @@ import { useState, useMemo } from "react";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import portrait from "@/assets/portrait.jpeg";
+import logo1 from "@/assets/logo1.png";
+import logo2 from "@/assets/logo2.png";
 import { RevealLine } from "./SplitReveal";
 
 const categories = ["Todos", "Branding", "Fotografia", "Direção"] as const;
@@ -16,6 +18,10 @@ interface Project {
   solution: string;
   year: string;
   accent?: boolean;
+  beforeAfterImages?: {
+    before: string;
+    after: string;
+  };
 }
 
 const projects: Project[] = [
@@ -30,6 +36,10 @@ const projects: Project[] = [
     solution:
       "Estruturação de sistema visual consistente, definição de identidade visual e direção de fotografia alinhada ao posicionamento da marca.",
     accent: true,
+    beforeAfterImages: {
+      before: logo1,
+      after: logo2,
+    },
   },
   {
     n: "02",
@@ -136,7 +146,7 @@ const Portfolio = () => {
                     <div className="absolute top-5 right-5 eyebrow text-foreground/70">
                       {p.year}
                     </div>
-                    <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                    <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <ArrowUpRight className="w-5 h-5" />
                     </div>
                   </a>
@@ -164,6 +174,36 @@ const Portfolio = () => {
                       </dd>
                     </div>
                   </dl>
+
+                  {/* Before/After Images */}
+                  {p.beforeAfterImages && (
+                    <div className="mt-8 grid grid-cols-2 gap-3 lg:gap-5">
+                      <figure className="text-center">
+                        <div className="relative aspect-square overflow-hidden rounded-lg border border-border bg-background/50 p-3">
+                          <img
+                            src={p.beforeAfterImages.before}
+                            alt="Branding antes"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                        <figcaption className="eyebrow text-muted-foreground text-xs mt-2">
+                          Antes
+                        </figcaption>
+                      </figure>
+                      <figure className="text-center">
+                        <div className="relative aspect-square overflow-hidden rounded-lg border border-brand/30 bg-background/50 p-3">
+                          <img
+                            src={p.beforeAfterImages.after}
+                            alt="Branding depois"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                        <figcaption className="eyebrow text-brand text-xs mt-2">
+                          Depois
+                        </figcaption>
+                      </figure>
+                    </div>
+                  )}
                 </div>
               </article>
             </RevealLine>
