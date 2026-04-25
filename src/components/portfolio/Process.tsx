@@ -7,28 +7,28 @@ const steps = [
     title: "Briefing",
     summary: "Entendimento antes da execução.",
     description:
-      "Entendimento do negócio, público e necessidades reais. Levantamento de informações essenciais para orientar o projeto e definir objetivos claros.",
+      "Mergulho no negócio, no público e nas necessidades reais antes de qualquer decisão visual.",
   },
   {
     n: "02",
     title: "Conceito",
-    summary: "Direção visual e estratégica.",
+    summary: "Direção, não decoração.",
     description:
-      "Definição da direção visual e estratégica. Escolha de elementos visuais alinhados ao posicionamento da marca e ao público.",
+      "Defino a direção visual e estratégica com escolhas que fazem sentido para a marca e para quem ela quer alcançar.",
   },
   {
     n: "03",
     title: "Execução",
     summary: "Mão na massa, do começo ao fim.",
     description:
-      "Desenvolvimento das peças e materiais necessários. Atuação direta em design, fotografia e produção visual, garantindo consistência em todas as etapas.",
+      "Desenvolvo as peças necessárias atuando diretamente em design, fotografia e produção visual.",
   },
   {
     n: "04",
     title: "Entrega",
     summary: "Material organizado para uso contínuo.",
     description:
-      "Organização final dos materiais e orientação para uso. Entrega estruturada para facilitar aplicação e continuidade da comunicação visual.",
+      "Entrego tudo estruturado e orientado para que a comunicação tenha continuidade mesmo sem mim.",
   },
 ];
 
@@ -45,7 +45,7 @@ const Process = () => {
           index="05"
           eyebrow="Método"
           title="Processo."
-          description="Quatro etapas que repito com obsessão. Garante que o resultado seja consistente — e o caminho, transparente."
+          description="Quatro etapas que sigo em todo projeto. Para que o resultado seja consistente e o caminho claro para os dois lados."
         />
 
         <div className="grid md:grid-cols-2 gap-px bg-border border border-border">
