@@ -53,7 +53,7 @@ const Experience = () => {
                   </div>
 
                   {/* Body */}
-                  <div className="lg:col-span-6">
+                  <div className="lg:col-span-9">
                     <h3 className="display text-3xl md:text-4xl lg:text-5xl mb-2 leading-[0.95]">
                       {job.role}
                     </h3>
@@ -73,20 +73,6 @@ const Experience = () => {
                         </span>
                       ))}
                     </div>
-                  </div>
-
-                  {/* Metrics */}
-                  <div className="lg:col-span-3 grid grid-cols-3 lg:grid-cols-1 gap-px bg-border border border-border">
-                    {job.metrics.map((m) => (
-                      <div key={m.label} className="bg-background p-4 lg:p-5">
-                        <div className="display text-2xl lg:text-3xl text-brand">
-                          {m.value}
-                        </div>
-                        <div className="eyebrow text-muted-foreground mt-1 text-[9px]">
-                          {m.label}
-                        </div>
-                      </div>
-                    ))}
                   </div>
                 </div>
               </RevealLine>
