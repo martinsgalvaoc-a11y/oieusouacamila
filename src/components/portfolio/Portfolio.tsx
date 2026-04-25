@@ -4,12 +4,22 @@ import SectionHeader from "./SectionHeader";
 import logo1 from "@/assets/logo1.jpg";
 import logo2 from "@/assets/logo2.png";
 import dsc2329 from "@/assets/DSC_2329.jpg";
-import foto2 from "@/assets/foto2.png";
+import foto1 from "@/assets/foto1.png";
+import img184508 from "@/assets/IMG_20260224_184508.jpg";
+import artboard4 from "@/assets/Artboard 4.png";
+import artboard8 from "@/assets/Artboard 8.png";
+import siteImg from "@/assets/site.jpeg";
+import hfImg from "@/assets/hf.jpg";
 import blackVideo from "@/assets/black.mp4";
 import { RevealLine } from "./SplitReveal";
 
 const categories = ["Todos", "Branding", "Fotografia", "Direção"] as const;
 type Category = (typeof categories)[number];
+
+interface ExtraImage {
+  src: string;
+  alt?: string;
+}
 
 interface Project {
   n: string;
@@ -22,6 +32,10 @@ interface Project {
   accent?: boolean;
   image?: string;
   video?: string;
+  videoAspect?: "16/9" | "9/16" | "4/3";
+  videoFit?: "cover" | "contain";
+  extraGrid?: ExtraImage[];
+  extraStackedVideo?: string;
   beforeAfterImages?: {
     before: string;
     after: string;
@@ -34,7 +48,7 @@ const projects: Project[] = [
     title: "Reposicionamento Premium",
     client: "Home Fine Móveis",
     category: "Branding",
-    year: "2025",
+    year: "2026",
     challenge:
       "A marca tinha um produto sólido mas a comunicação visual não refletia isso. Identidade desatualizada, sem consistência entre os pontos de contato.",
     solution:
@@ -55,7 +69,11 @@ const projects: Project[] = [
       "Apresentar produtos e ambientes de forma mais atrativa em um cenário digital saturado de imagens semelhantes.",
     solution:
       "Produção fotográfica com direção estética alinhada à identidade da marca, valorizando detalhes e acabamento dos produtos.",
-    image: dsc2329,
+    image: dsc2329 || foto1,
+    extraGrid: [
+      { src: img184508, alt: "Série Interiores — detalhe 1" },
+      { src: artboard4, alt: "Série Interiores — detalhe 2" },
+    ],
   },
   {
     n: "03",
@@ -68,7 +86,8 @@ const projects: Project[] = [
     solution:
       "Desenvolvimento de identidade visual, produção dos produtos, construção de presença digital e venda direta ao consumidor.",
     accent: true,
-    image: foto2,
+    image: siteImg,
+    extraStackedVideo: blackVideo,
   },
   {
     n: "04",
@@ -80,7 +99,11 @@ const projects: Project[] = [
       "Garantir consistência visual entre showroom físico, redes sociais e materiais impressos.",
     solution:
       "Criação de guia visual, templates e biblioteca de imagens padronizadas.",
-    video: blackVideo,
+    image: artboard4,
+    extraGrid: [
+      { src: artboard8, alt: "Sistema de Comunicação — peça 1" },
+      { src: hfImg, alt: "Sistema de Comunicação — peça 2" },
+    ],
   },
 ];
 
@@ -171,41 +194,73 @@ const Portfolio = () => {
                       </div>
                     </div>
                   ) : (
-                    <a href="#contato" className="block relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-ink">
-                      {p.video ? (
-                        <video
-                          src={p.video}
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          className="w-full h-full object-cover"
+                    <div className="space-y-4 lg:space-y-5">
+                      <a href="#contato" className="block relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-ink">
+                        {p.video ? (
+                          <video
+                            src={p.video}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <img
+                            src={p.image}
+                            alt={`${p.title} — ${p.client}`}
+                            loading="lazy"
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-[1.04]"
+                          />
+                        )}
+                        <div
+                          className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${
+                            p.accent
+                              ? "bg-brand mix-blend-multiply opacity-65 group-hover:opacity-15"
+                              : "bg-ink/65 group-hover:bg-ink/10"
+                          }`}
                         />
-                      ) : (
-                        <img
-                          src={p.image}
-                          alt={`${p.title} — ${p.client}`}
-                          loading="lazy"
-                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-[1.04]"
-                        />
+                        <div className="absolute top-5 left-5 display text-2xl text-foreground/85">
+                          {p.n}
+                        </div>
+                        <div className="absolute top-5 right-5 eyebrow text-foreground/70">
+                          {p.year}
+                        </div>
+                        <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <ArrowUpRight className="w-5 h-5" />
+                        </div>
+                      </a>
+
+                      {/* Stacked vertical video (Project 03) */}
+                      {p.extraStackedVideo && (
+                        <div className="relative bg-ink overflow-hidden mx-auto" style={{ aspectRatio: "9 / 16", maxWidth: "320px", width: "100%" }}>
+                          <video
+                            src={p.extraStackedVideo}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
                       )}
-                      <div
-                        className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${
-                          p.accent
-                            ? "bg-brand mix-blend-multiply opacity-65 group-hover:opacity-15"
-                            : "bg-ink/65 group-hover:bg-ink/10"
-                        }`}
-                      />
-                      <div className="absolute top-5 left-5 display text-2xl text-foreground/85">
-                        {p.n}
-                      </div>
-                      <div className="absolute top-5 right-5 eyebrow text-foreground/70">
-                        {p.year}
-                      </div>
-                      <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ArrowUpRight className="w-5 h-5" />
-                      </div>
-                    </a>
+
+                      {/* Extra grid of two smaller images */}
+                      {p.extraGrid && p.extraGrid.length > 0 && (
+                        <div className="grid grid-cols-2 gap-3 lg:gap-5">
+                          {p.extraGrid.map((g, idx) => (
+                            <div key={idx} className="relative aspect-[4/3] overflow-hidden bg-ink">
+                              <img
+                                src={g.src}
+                                alt={g.alt || `${p.title} — imagem ${idx + 1}`}
+                                loading="lazy"
+                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   )}
                 </div>
 
