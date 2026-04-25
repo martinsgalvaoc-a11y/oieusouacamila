@@ -231,36 +231,6 @@ const Portfolio = () => {
                       </dd>
                     </div>
                   </dl>
-
-                  {/* Before/After Images */}
-                  {p.beforeAfterImages && (
-                    <div className="mt-8 grid grid-cols-2 gap-3 lg:gap-5">
-                      <figure className="text-center">
-                        <div className="relative aspect-square overflow-hidden rounded-lg border border-border bg-background/50 p-3">
-                          <img
-                            src={p.beforeAfterImages.before}
-                            alt="Branding antes"
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <figcaption className="eyebrow text-muted-foreground text-xs mt-2">
-                          Antes
-                        </figcaption>
-                      </figure>
-                      <figure className="text-center">
-                        <div className="relative aspect-square overflow-hidden rounded-lg border border-brand/30 bg-background/50 p-3">
-                          <img
-                            src={p.beforeAfterImages.after}
-                            alt="Branding depois"
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        <figcaption className="eyebrow text-brand text-xs mt-2">
-                          Depois
-                        </figcaption>
-                      </figure>
-                    </div>
-                  )}
                 </div>
               </article>
             </RevealLine>
