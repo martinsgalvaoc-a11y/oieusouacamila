@@ -61,6 +61,7 @@ const Contact = () => {
 
             <MagneticButton
               href={pdfHref}
+              download
               className="group border border-foreground/40 text-foreground px-8 py-5 hover:bg-foreground/10"
               strength={0.25}
               ariaLabel="Baixar currículo em PDF"
