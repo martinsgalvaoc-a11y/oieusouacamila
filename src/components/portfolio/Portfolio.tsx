@@ -129,34 +129,84 @@ const Portfolio = () => {
           return (
             <RevealLine key={p.n} delay={0.05}>
               <article className="group grid lg:grid-cols-12 gap-6 lg:gap-10 items-center">
-                {/* Image */}
+                {/* Media */}
                 <div
                   className={`lg:col-span-7 ${reverse ? "lg:order-2" : ""}`}
                 >
-                  <a href="#contato" className="block relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-ink">
-                    <img
-                      src={portrait}
-                      alt={`${p.title} — ${p.client}`}
-                      loading="lazy"
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-[1.04]"
-                    />
-                    <div
-                      className={`absolute inset-0 transition-opacity duration-700 ${
-                        p.accent
-                          ? "bg-brand mix-blend-multiply opacity-65 group-hover:opacity-15"
-                          : "bg-ink/65 group-hover:bg-ink/10"
-                      }`}
-                    />
-                    <div className="absolute top-5 left-5 display text-2xl text-foreground/85">
-                      {p.n}
+                  {p.beforeAfterImages ? (
+                    <div className="relative bg-ink p-4 lg:p-6">
+                      <div className="grid grid-cols-2 gap-3 lg:gap-5">
+                        <figure className="text-center">
+                          <div className="relative aspect-square overflow-hidden border border-border bg-background/50 p-3">
+                            <img
+                              src={p.beforeAfterImages.before}
+                              alt={`${p.title} — antes`}
+                              loading="lazy"
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                          <figcaption className="eyebrow text-muted-foreground text-xs mt-2">
+                            Antes
+                          </figcaption>
+                        </figure>
+                        <figure className="text-center">
+                          <div className="relative aspect-square overflow-hidden border border-brand/30 bg-background/50 p-3">
+                            <img
+                              src={p.beforeAfterImages.after}
+                              alt={`${p.title} — depois`}
+                              loading="lazy"
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                          <figcaption className="eyebrow text-brand text-xs mt-2">
+                            Depois
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <div className="absolute top-5 left-5 display text-2xl text-foreground/85">
+                        {p.n}
+                      </div>
+                      <div className="absolute top-5 right-5 eyebrow text-foreground/70">
+                        {p.year}
+                      </div>
                     </div>
-                    <div className="absolute top-5 right-5 eyebrow text-foreground/70">
-                      {p.year}
-                    </div>
-                    <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ArrowUpRight className="w-5 h-5" />
-                    </div>
-                  </a>
+                  ) : (
+                    <a href="#contato" className="block relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-ink">
+                      {p.video ? (
+                        <video
+                          src={p.video}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <img
+                          src={p.image}
+                          alt={`${p.title} — ${p.client}`}
+                          loading="lazy"
+                          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-[1.04]"
+                        />
+                      )}
+                      <div
+                        className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${
+                          p.accent
+                            ? "bg-brand mix-blend-multiply opacity-65 group-hover:opacity-15"
+                            : "bg-ink/65 group-hover:bg-ink/10"
+                        }`}
+                      />
+                      <div className="absolute top-5 left-5 display text-2xl text-foreground/85">
+                        {p.n}
+                      </div>
+                      <div className="absolute top-5 right-5 eyebrow text-foreground/70">
+                        {p.year}
+                      </div>
+                      <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ArrowUpRight className="w-5 h-5" />
+                      </div>
+                    </a>
+                  )}
                 </div>
 
                 {/* Case copy */}
