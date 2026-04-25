@@ -7,6 +7,7 @@ interface Props {
   className?: string;
   strength?: number;
   ariaLabel?: string;
+  download?: boolean;
 }
 
 const MagneticButton = ({
@@ -16,6 +17,7 @@ const MagneticButton = ({
   className = "",
   strength = 0.35,
   ariaLabel,
+  download = false,
 }: Props) => {
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
 
@@ -41,6 +43,7 @@ const MagneticButton = ({
       <a
         ref={ref as React.RefObject<HTMLAnchorElement>}
         href={href}
+        download={download}
         aria-label={ariaLabel}
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}

@@ -2,6 +2,8 @@ import { Mail, MapPin, Phone, ArrowUpRight, Download } from "lucide-react";
 import MagneticButton from "./MagneticButton";
 import { RevealLine } from "./SplitReveal";
 
+const pdfHref = `${import.meta.env.BASE_URL}curriculo-camila-renata.pdf`;
+
 const contacts = [
   {
     icon: Mail,
@@ -58,7 +60,8 @@ const Contact = () => {
             </MagneticButton>
 
             <MagneticButton
-              href="/curriculo-camila-renata.pdf"
+              href={pdfHref}
+              download
               className="group border border-foreground/40 text-foreground px-8 py-5 hover:bg-foreground/10"
               strength={0.25}
               ariaLabel="Baixar currículo em PDF"
