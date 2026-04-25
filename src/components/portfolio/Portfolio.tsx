@@ -9,7 +9,7 @@ import img184508 from "@/assets/IMG_20260224_184508.jpg";
 import artboard4 from "@/assets/Artboard 4.png";
 import artboard8 from "@/assets/Artboard 8.png";
 import siteImg from "@/assets/site.jpeg";
-import hfImg from "@/assets/hf.jpg";
+import hfImg from "@/assets/Artboard 9.png";
 import blackVideo from "@/assets/black.mp4";
 import { RevealLine } from "./SplitReveal";
 
