@@ -195,7 +195,7 @@ const Portfolio = () => {
                     </div>
                   ) : (
                     <div className="space-y-4 lg:space-y-5">
-                      <a href="#contato" className="block relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden bg-ink">
+                      <a href="#contato" className="block relative overflow-hidden bg-ink">
                         {p.video ? (
                           <video
                             src={p.video}
@@ -203,58 +203,58 @@ const Portfolio = () => {
                             muted
                             loop
                             playsInline
-                            className="w-full h-full object-cover"
+                            className="w-full h-auto max-h-[70vh] object-contain mx-auto"
                           />
                         ) : (
                           <img
                             src={p.image}
                             alt={`${p.title} — ${p.client}`}
                             loading="lazy"
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-[1.04]"
+                            className="w-full h-auto max-h-[70vh] object-contain mx-auto grayscale group-hover:grayscale-0 transition-all duration-1000"
                           />
                         )}
                         <div
                           className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${
                             p.accent
-                              ? "bg-brand mix-blend-multiply opacity-65 group-hover:opacity-15"
-                              : "bg-ink/65 group-hover:bg-ink/10"
+                              ? "bg-brand mix-blend-multiply opacity-30 group-hover:opacity-0"
+                              : "bg-ink/20 group-hover:bg-transparent"
                           }`}
                         />
-                        <div className="absolute top-5 left-5 display text-2xl text-foreground/85">
+                        <div className="absolute top-5 left-5 display text-2xl text-foreground/85 z-10">
                           {p.n}
                         </div>
-                        <div className="absolute top-5 right-5 eyebrow text-foreground/70">
+                        <div className="absolute top-5 right-5 eyebrow text-foreground/70 z-10">
                           {p.year}
                         </div>
-                        <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
                           <ArrowUpRight className="w-5 h-5" />
                         </div>
                       </a>
 
-                      {/* Stacked vertical video (Project 03) */}
+                      {/* Stacked vertical video (Project 03) — preserves intrinsic ratio, never crops */}
                       {p.extraStackedVideo && (
-                        <div className="relative bg-ink overflow-hidden mx-auto" style={{ aspectRatio: "9 / 16", maxWidth: "320px", width: "100%" }}>
+                        <div className="relative bg-ink mx-auto w-full" style={{ maxWidth: "360px" }}>
                           <video
                             src={p.extraStackedVideo}
                             autoPlay
                             muted
                             loop
                             playsInline
-                            className="w-full h-full object-contain"
+                            className="w-full h-auto max-h-[80vh] object-contain block"
                           />
                         </div>
                       )}
 
-                      {/* Extra grid of two smaller images */}
+                      {/* Extra grid of two smaller images — contain on themed bg, no crop */}
                       {p.extraGrid && p.extraGrid.length > 0 && (
-                        <div className="grid grid-cols-2 gap-3 lg:gap-5">
+                        <div className="grid grid-cols-2 gap-3 lg:gap-5 items-start">
                           {p.extraGrid.map((g, idx) => (
-                            <div key={idx} className="relative aspect-[4/3] overflow-hidden bg-ink">
+                            <div key={idx} className="relative bg-ink overflow-hidden">
                               <img
                                 src={g.src}
                                 alt={g.alt || `${p.title} — imagem ${idx + 1}`}
                                 loading="lazy"
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+                                className="w-full h-auto max-h-[40vh] object-contain mx-auto block"
                               />
                             </div>
                           ))}
