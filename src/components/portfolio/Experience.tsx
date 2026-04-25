@@ -4,17 +4,12 @@ import { RevealLine } from "./SplitReveal";
 const jobs = [
   {
     badge: "HF",
-    role: "Analista de Marketing e Comunicação",
+    role: "Coordenadora de Marketing e Comunicação",
     company: "Home Fine Móveis",
     period: "2025 — 2026",
     description:
-      "Responsável pela organização da comunicação visual da marca no segmento de móveis sob medida de alto padrão. Atuação em direção de fotografia de ambientes, padronização visual, criação de materiais impressos e digitais, suporte ao time comercial e organização da presença visual da empresa.",
-    metrics: [
-      { value: "+40%", label: "Engajamento social" },
-      { value: "12", label: "Campanhas entregues" },
-      { value: "3", label: "Linhas relançadas" },
-    ],
-    tags: ["Branding", "Fotografia", "Alto Padrão"],
+      "Responsável pela comunicação visual da marca no segmento de móveis sob medida. Atuei na direção de fotografia de ambientes, padronização visual, criação de materiais impressos e digitais e organização da presença visual da empresa.",
+    tags: ["Branding", "Fotografia", "Móveis sob Medida"],
   },
   {
     badge: "SR",
@@ -22,12 +17,7 @@ const jobs = [
     company: "Studio Rosso · Art e Design",
     period: "2020 — 2024",
     description:
-      "Criação e gestão de estúdio próprio de design e fotografia. Responsável por desenvolvimento de identidade visual, produção fotográfica, atendimento direto ao cliente, vendas, gestão de pedidos e acompanhamento de produção e entrega. Gestão completa do processo, do conceito à finalização.",
-    metrics: [
-      { value: "5 anos", label: "Operação contínua" },
-      { value: "100+", label: "Peças autorais" },
-      { value: "B2C", label: "Venda direta" },
-    ],
+      "Criei e geri meu próprio estúdio de design e produtos autorais. Cuidei de tudo: identidade visual, produção, atendimento, vendas e entrega. Foi onde desenvolvi visão de negócio e aprendi que execução responsável é o que sustenta qualquer projeto.",
     tags: ["Direção", "Estúdio Próprio", "Minimalismo"],
   },
 ];
@@ -40,7 +30,7 @@ const Experience = () => {
           index="03"
           eyebrow="Trajetória"
           title="Experiência."
-          description="De estúdio próprio a atuação corporativa em segmentos premium — uma trajetória feita de obra entregue."
+          description="De estúdio próprio a atuação corporativa no setor moveleiro. Uma trajetória feita de trabalho entregue."
         />
 
         <div className="relative">
