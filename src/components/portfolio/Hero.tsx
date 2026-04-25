@@ -108,6 +108,7 @@ const Hero = () => {
 
           <MagneticButton
             href={pdfHref}
+            download
             className="group text-muted-foreground hover:text-foreground px-3 py-4"
             strength={0.2}
             ariaLabel="Baixar currículo em PDF"
