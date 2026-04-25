@@ -4,6 +4,8 @@ import portrait from "@/assets/portrait.jpeg";
 import LocalClock from "./LocalClock";
 import MagneticButton from "./MagneticButton";
 
+const pdfHref = `${import.meta.env.BASE_URL}curriculo-camila-renata.pdf`;
+
 const Hero = () => {
   return (
     <section
@@ -105,7 +107,7 @@ const Hero = () => {
           </MagneticButton>
 
           <MagneticButton
-            href="/curriculo-camila-renata.pdf"
+            href={pdfHref}
             className="group text-muted-foreground hover:text-foreground px-3 py-4"
             strength={0.2}
             ariaLabel="Baixar currículo em PDF"
