@@ -1,9 +1,11 @@
 import { useState, useMemo } from "react";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeader from "./SectionHeader";
-import portrait from "@/assets/portrait.jpeg";
 import logo1 from "@/assets/logo1.jpg";
 import logo2 from "@/assets/logo2.png";
+import dsc2329 from "@/assets/DSC_2329.jpg";
+import foto2 from "@/assets/foto2.png";
+import blackVideo from "@/assets/black.mp4";
 import { RevealLine } from "./SplitReveal";
 
 const categories = ["Todos", "Branding", "Fotografia", "Direção"] as const;
@@ -18,6 +20,8 @@ interface Project {
   solution: string;
   year: string;
   accent?: boolean;
+  image?: string;
+  video?: string;
   beforeAfterImages?: {
     before: string;
     after: string;
@@ -32,9 +36,9 @@ const projects: Project[] = [
     category: "Branding",
     year: "2025",
     challenge:
-      "Marca regional com produto de alto padrão, mas comunicação visual abaixo do nível esperado para o segmento premium.",
+      "A marca tinha um produto sólido mas a comunicação visual não refletia isso. Identidade desatualizada, sem consistência entre os pontos de contato.",
     solution:
-      "Estruturação de sistema visual consistente, definição de identidade visual e direção de fotografia alinhada ao posicionamento da marca.",
+      "Rebranding completo com nova identidade visual, padronização e direção de fotografia alinhada ao posicionamento da marca.",
     accent: true,
     beforeAfterImages: {
       before: logo1,
@@ -51,6 +55,7 @@ const projects: Project[] = [
       "Apresentar produtos e ambientes de forma mais atrativa em um cenário digital saturado de imagens semelhantes.",
     solution:
       "Produção fotográfica com direção estética alinhada à identidade da marca, valorizando detalhes e acabamento dos produtos.",
+    image: dsc2329,
   },
   {
     n: "03",
@@ -59,10 +64,11 @@ const projects: Project[] = [
     category: "Direção",
     year: "2020 — 2024",
     challenge:
-      "Criar uma marca autoral de arte e design e construir presença própria no mercado.",
+      "Criar uma marca autoral de quadros decorativos e construir presença própria no mercado digital.",
     solution:
-      "Desenvolvimento de identidade visual consistente, produção de peças autorais e venda direta ao consumidor.",
+      "Desenvolvimento de identidade visual, produção dos produtos, construção de presença digital e venda direta ao consumidor.",
     accent: true,
+    image: foto2,
   },
   {
     n: "04",
@@ -74,6 +80,7 @@ const projects: Project[] = [
       "Garantir consistência visual entre showroom físico, redes sociais e materiais impressos.",
     solution:
       "Criação de guia visual, templates e biblioteca de imagens padronizadas.",
+    video: blackVideo,
   },
 ];
 
