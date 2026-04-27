@@ -12,21 +12,21 @@ const Hero = () => {
       id="top"
       className="relative min-h-screen w-full overflow-hidden grain"
     >
-      {/* Background portrait — full screen */}
+      {/* Background portrait — full screen, dramatic silhouette */}
       <div className="absolute inset-0">
         <motion.img
           src={portrait}
           alt="Retrato de Camila Renata segurando câmera fotográfica"
-          initial={{ scale: 1.15, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          initial={{ scale: 1.25, opacity: 0 }}
+          animate={{ scale: 1.08, opacity: 1 }}
           transition={{ duration: 1.8, ease: [0.19, 1, 0.22, 1] }}
-          className="w-full h-full object-cover object-[60%_center] sm:object-[65%_center] lg:object-center grayscale contrast-[1.15]"
+          className="w-full h-full object-cover object-[70%_20%] sm:object-[72%_15%] lg:object-[78%_15%] contrast-[1.2] saturate-[0.85]"
         />
-        {/* Color washes */}
-        <div className="absolute inset-0 bg-brand mix-blend-multiply opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_40%,hsl(var(--brand)/0.35)_0%,transparent_55%)]" />
+        {/* Color washes — heavier brand wash like reference */}
+        <div className="absolute inset-0 bg-brand mix-blend-multiply opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-background/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_35%,hsl(var(--brand)/0.45)_0%,transparent_60%)]" />
       </div>
 
       {/* Top bar — clock + status */}
