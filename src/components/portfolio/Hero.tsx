@@ -126,17 +126,16 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Giant cropped name at bottom — like "BRANDING" in the reference */}
+      {/* Giant name at bottom — cropped on desktop, fully readable on mobile */}
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.4, delay: 1.2, ease: [0.19, 1, 0.22, 1] }}
-        className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none overflow-hidden"
+        className="absolute bottom-4 sm:bottom-0 left-0 right-0 z-10 pointer-events-none overflow-visible sm:overflow-hidden"
       >
         <h2
           aria-hidden="true"
-          className="display text-foreground/95 leading-[0.8] tracking-[-0.05em] whitespace-nowrap translate-y-[18%] sm:translate-y-[22%] px-4 sm:px-0"
-          style={{ fontSize: "clamp(3.5rem, 19vw, 22rem)" }}
+          className="display w-full text-center sm:text-left text-foreground/95 leading-none tracking-normal whitespace-nowrap translate-y-0 sm:translate-y-[22%] px-3 sm:px-0 [font-size:clamp(2.75rem,16vw,4.25rem)] sm:[font-size:clamp(6rem,19vw,22rem)]"
         >
           CAMILA
         </h2>
