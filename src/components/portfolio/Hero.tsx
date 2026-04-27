@@ -135,7 +135,7 @@ const Hero = () => {
       >
         <h2
           aria-hidden="true"
-          className="display w-full text-center sm:text-left text-foreground/95 leading-none tracking-normal whitespace-nowrap translate-y-0 sm:translate-y-[22%] px-3 sm:px-0 [font-size:clamp(2.75rem,16vw,4.25rem)] sm:[font-size:clamp(6rem,19vw,22rem)]"
+          className="display w-full text-foreground leading-[0.8] whitespace-nowrap translate-y-0 sm:translate-y-[22%] [font-size:23vw] sm:[font-size:clamp(6rem,19vw,22rem)] tracking-[-0.04em] sm:tracking-normal text-center sm:text-left"
         >
           CAMILA
         </h2>
