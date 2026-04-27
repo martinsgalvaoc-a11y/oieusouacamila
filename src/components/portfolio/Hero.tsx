@@ -135,8 +135,8 @@ const Hero = () => {
       >
         <h2
           aria-hidden="true"
-          className="display text-foreground/95 leading-[0.75] tracking-[-0.05em] whitespace-nowrap translate-y-[22%] sm:translate-y-[25%]"
-          style={{ fontSize: "clamp(7rem, 22vw, 22rem)" }}
+          className="display text-foreground/95 leading-[0.8] tracking-[-0.05em] whitespace-nowrap translate-y-[18%] sm:translate-y-[22%] px-4 sm:px-0"
+          style={{ fontSize: "clamp(3.5rem, 19vw, 22rem)" }}
         >
           CAMILA
         </h2>
