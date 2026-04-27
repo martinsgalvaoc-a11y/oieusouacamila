@@ -141,20 +141,54 @@ const Portfolio = () => {
         })}
       </div>
 
-      {/* Cases — full bleed alternating */}
-      <div className="space-y-20 lg:space-y-32">
-        {filtered.map((p, i) => {
-          const reverse = i % 2 === 1;
+      {/* Cases — text first, then media, full width stacked */}
+      <div className="space-y-24 lg:space-y-40">
+        {filtered.map((p) => {
           return (
             <RevealLine key={p.n} delay={0.05}>
-              <article className="group grid lg:grid-cols-12 gap-6 lg:gap-10 items-center">
-                {/* Media */}
-                <div
-                  className={`lg:col-span-7 ${reverse ? "lg:order-2" : ""}`}
-                >
+              <article className="group">
+                {/* === 1. HEADER: number + meta + title + copy === */}
+                <header className="grid lg:grid-cols-12 gap-6 lg:gap-10 mb-8 lg:mb-12">
+                  <div className="lg:col-span-5">
+                    <div className="flex items-baseline gap-4 mb-4">
+                      <span className="display text-5xl md:text-6xl text-brand leading-none">
+                        {p.n}
+                      </span>
+                      <span className="eyebrow text-muted-foreground">
+                        {p.year}
+                      </span>
+                    </div>
+                    <div className="eyebrow text-brand mb-4">
+                      {p.category} · {p.client}
+                    </div>
+                    <h3 className="display text-3xl md:text-4xl lg:text-5xl leading-[0.95] group-hover:text-brand transition-colors">
+                      {p.title}
+                    </h3>
+                  </div>
+
+                  <div className="lg:col-span-7">
+                    <dl className="space-y-5">
+                      <div>
+                        <dt className="eyebrow text-muted-foreground mb-1.5">Desafio</dt>
+                        <dd className="text-sm lg:text-base text-foreground/85 leading-relaxed">
+                          {p.challenge}
+                        </dd>
+                      </div>
+                      <div>
+                        <dt className="eyebrow text-muted-foreground mb-1.5">Solução</dt>
+                        <dd className="text-sm lg:text-base text-foreground/85 leading-relaxed">
+                          {p.solution}
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </header>
+
+                {/* === 2. MEDIA / CASE === */}
+                <div className="w-full">
                   {p.beforeAfterImages ? (
-                    <div className="relative bg-ink p-4 lg:p-6">
-                      <div className="grid grid-cols-2 gap-3 lg:gap-5">
+                    <div className="relative bg-ink p-4 lg:p-8">
+                      <div className="grid grid-cols-2 gap-3 lg:gap-6 max-w-4xl mx-auto">
                         <figure className="text-center">
                           <div className="relative aspect-square overflow-hidden border border-border bg-background/50 p-3">
                             <img
@@ -182,15 +216,9 @@ const Portfolio = () => {
                           </figcaption>
                         </figure>
                       </div>
-                      <div className="absolute top-5 left-5 display text-2xl text-foreground/85">
-                        {p.n}
-                      </div>
-                      <div className="absolute top-5 right-5 eyebrow text-foreground/70">
-                        {p.year}
-                      </div>
                     </div>
                   ) : (
-                    <div className="space-y-4 lg:space-y-5">
+                    <div className="space-y-4 lg:space-y-6">
                       <a href="#contato" className="block relative overflow-hidden bg-ink">
                         {p.video ? (
                           <video
@@ -199,14 +227,14 @@ const Portfolio = () => {
                             muted
                             loop
                             playsInline
-                            className="w-full h-auto max-h-[70vh] object-contain mx-auto"
+                            className="w-full h-auto max-h-[80vh] object-contain mx-auto"
                           />
                         ) : (
                           <img
                             src={p.image}
                             alt={`${p.title} — ${p.client}`}
                             loading="lazy"
-                            className="w-full h-auto max-h-[70vh] object-contain mx-auto grayscale group-hover:grayscale-0 transition-all duration-1000"
+                            className="w-full h-auto max-h-[80vh] object-contain mx-auto grayscale group-hover:grayscale-0 transition-all duration-1000"
                           />
                         )}
                         <div
@@ -216,18 +244,12 @@ const Portfolio = () => {
                               : "bg-ink/20 group-hover:bg-transparent"
                           }`}
                         />
-                        <div className="absolute top-5 left-5 display text-2xl text-foreground/85 z-10">
-                          {p.n}
-                        </div>
-                        <div className="absolute top-5 right-5 eyebrow text-foreground/70 z-10">
-                          {p.year}
-                        </div>
                         <div className="absolute bottom-5 right-5 w-12 h-12 rounded-full bg-background/30 backdrop-blur-md border border-foreground/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
                           <ArrowUpRight className="w-5 h-5" />
                         </div>
                       </a>
 
-                      {/* Stacked vertical video (Project 03) — preserves intrinsic ratio, never crops */}
+                      {/* Stacked vertical video (Project 03) */}
                       {p.extraStackedVideo && (
                         <div className="relative bg-ink mx-auto w-full" style={{ maxWidth: "360px" }}>
                           <video
@@ -241,16 +263,16 @@ const Portfolio = () => {
                         </div>
                       )}
 
-                      {/* Extra grid of two smaller images — contain on themed bg, no crop */}
+                      {/* Extra grid of two smaller images */}
                       {p.extraGrid && p.extraGrid.length > 0 && (
-                        <div className="grid grid-cols-2 gap-3 lg:gap-5 items-start">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-6 items-start">
                           {p.extraGrid.map((g, idx) => (
                             <div key={idx} className="relative bg-ink overflow-hidden">
                               <img
                                 src={g.src}
                                 alt={g.alt || `${p.title} — imagem ${idx + 1}`}
                                 loading="lazy"
-                                className="w-full h-auto max-h-[40vh] object-contain mx-auto block"
+                                className="w-full h-auto max-h-[50vh] object-contain mx-auto block"
                               />
                             </div>
                           ))}
@@ -258,30 +280,6 @@ const Portfolio = () => {
                       )}
                     </div>
                   )}
-                </div>
-
-                {/* Case copy */}
-                <div className={`lg:col-span-5 ${reverse ? "lg:order-1" : ""}`}>
-                  <div className="eyebrow text-brand mb-4">
-                    {p.category} · {p.client}
-                  </div>
-                  <h3 className="display text-3xl md:text-4xl lg:text-5xl leading-[0.95] mb-6 group-hover:text-brand transition-colors">
-                    {p.title}
-                  </h3>
-                  <dl className="space-y-5">
-                    <div>
-                      <dt className="eyebrow text-muted-foreground mb-1.5">Desafio</dt>
-                      <dd className="text-sm lg:text-base text-foreground/85 leading-relaxed">
-                        {p.challenge}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="eyebrow text-muted-foreground mb-1.5">Solução</dt>
-                      <dd className="text-sm lg:text-base text-foreground/85 leading-relaxed">
-                        {p.solution}
-                      </dd>
-                    </div>
-                  </dl>
                 </div>
               </article>
             </RevealLine>
