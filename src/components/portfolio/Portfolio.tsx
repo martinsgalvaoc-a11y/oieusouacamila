@@ -70,10 +70,6 @@ const projects: Project[] = [
     solution:
       "Produção fotográfica com direção estética alinhada à identidade da marca, valorizando detalhes e acabamento dos produtos.",
     image: dsc2329 || foto1,
-    extraGrid: [
-      { src: img184508, alt: "Série Interiores — detalhe 1" },
-      { src: artboard4, alt: "Série Interiores — detalhe 2" },
-    ],
   },
   {
     n: "03",
