@@ -5,7 +5,7 @@ import logo1 from "@/assets/logo1.jpg";
 import logo2 from "@/assets/logo2.png";
 import dsc2329 from "@/assets/DSC_2329.jpg";
 import foto1 from "@/assets/foto1.png";
-import img184508 from "@/assets/IMG_20260224_184508.jpg";
+
 import artboard4 from "@/assets/Artboard 4.png";
 import artboard8 from "@/assets/Artboard 8.png";
 import siteImg from "@/assets/site.jpeg";
