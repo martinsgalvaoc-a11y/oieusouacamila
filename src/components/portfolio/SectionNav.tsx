@@ -4,9 +4,10 @@ const sections = [
   { id: "top", num: "01", label: "Início" },
   { id: "perfil", num: "02", label: "Perfil" },
   { id: "experiencia", num: "03", label: "Experiência" },
-  { id: "portfolio", num: "04", label: "Portfólio" },
-  { id: "processo", num: "05", label: "Processo" },
-  { id: "contato", num: "06", label: "Contato" },
+  { id: "formacao", num: "04", label: "Formação" },
+  { id: "portfolio", num: "05", label: "Portfólio" },
+  { id: "processo", num: "06", label: "Processo" },
+  { id: "contato", num: "07", label: "Contato" },
 ];
 
 const SectionNav = () => {

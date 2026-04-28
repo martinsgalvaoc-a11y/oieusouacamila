@@ -42,7 +42,7 @@ const Process = () => {
 
       <div className="container relative">
         <SectionHeader
-          index="05"
+          index="06"
           eyebrow="Método"
           title="Processo."
           description="Quatro etapas que sigo em todo projeto. Para que o resultado seja consistente e o caminho claro para os dois lados."
