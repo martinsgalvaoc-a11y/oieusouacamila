@@ -114,7 +114,7 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="container py-24 lg:py-40">
       <SectionHeader
-        index="04"
+        index="05"
         eyebrow="Trabalhos selecionados"
         title="Portfólio."
         description="Cada projeto começa em uma pergunta. Aqui ficam as respostas mais bem entregues."
